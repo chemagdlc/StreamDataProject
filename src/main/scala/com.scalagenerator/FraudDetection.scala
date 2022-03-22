@@ -1,4 +1,4 @@
-package com.startdataengineering
+package com.scalagenerator
 
 import org.apache.flink.api.common.state.{ValueState, ValueStateDescriptor}
 import org.apache.flink.api.common.typeinfo.Types
@@ -6,7 +6,7 @@ import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction
 import org.apache.flink.util.Collector
 
-import com.startdataengineering.model.ServerLog
+import com.scalagenerator.model.ServerLog
 
 class FraudDetection extends KeyedProcessFunction[String, String, String]{
 
@@ -73,6 +73,7 @@ class FraudDetection extends KeyedProcessFunction[String, String, String]{
   }
 
   @throws[Exception] //The onTimer method is a call back method that gets executed when a timer runs out
+  // set timers and override the method to execute required logic once the timer runs out for that specific account.
   override def onTimer(timestamp: Long,
                        ctx: KeyedProcessFunction[String, String, String]#OnTimerContext,
                        out: Collector[String]): Unit = {

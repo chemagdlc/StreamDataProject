@@ -1,4 +1,4 @@
-package com.startdataengineering
+package com.scalagenerator
 
 import java.util.Properties
 import org.apache.flink.api.common.serialization.SimpleStringSchema
